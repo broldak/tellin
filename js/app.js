@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+	$('#content').outerHeight($('html').outerHeight() - $('#nav').outerHeight());
+
 	$('.nav-item a').on('click', function(e){
 		e.preventDefault();
 
@@ -62,12 +64,12 @@ $(document).ready(function(){
 
 
 	$(document).on('scroll', function(){
-		var top = $(document).scrollTop(),
-			whenDiffNegligible = Math.abs(top - $('#when').offset().top + 114) < 150,
+		var bottom = $(window).scrollTop() + $(window).height();
+			//.whenDiffNegligible = Math.abs(bottom - $('#when').offset().bottom + 114) < 150,
 			//whereDiffNegligible = Math.abs(top - $('#where').offset().top + 114) < 150,
-			whoDiffNegligible = Math.abs(top - $('#who').offset().top + 114) < 150;
+			//whoDiffNegligible = Math.abs(bottom - $('#who').offset().bottom + 114) < 150;
 
-		if (top >= 0 && whenDiffNegligible) {
+		if (bottom >= 0 && bottom > $('#when').position().top + $('#when').outerHeight()-150) {
 			$('#when').find('.heading').fadeIn(1000);
 			$('#when').find('.section-content').fadeIn(1000);
 		}
@@ -77,7 +79,7 @@ $(document).ready(function(){
 		//	$('#where').find('.section-content').fadeIn(1000);
 		//}
 
-		if (top >= 0 && whoDiffNegligible) {
+		if (bottom >= 0 && bottom > $('#who').position().top + $('#who').outerHeight()-150) {
 			$('#who').find('.heading').fadeIn(1000);
 			$('#who').find('.section-content').fadeIn(1000);
 		}
