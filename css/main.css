@@ -114,7 +114,7 @@ html, body {
 #content {
 	margin-top: 114px;
 	padding-top: 20px;
-	background-image: url('http://www.academyofmusictheatre.com/wp-content/uploads/TheMoth_5_.jpg');
+	background-image: url('../img/bg.png');
 	background-size: cover;
 	height: 100%;
 	border-bottom: 1px solid #555;
